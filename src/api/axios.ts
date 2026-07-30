@@ -47,7 +47,11 @@ axiosInstance.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        if (error.response?.status === 401 && !originalRequest._retry) {
+        if (   error.response?.status === 401 &&
+            !originalRequest._retry &&
+            !originalRequest.url.includes("/auth/login") &&
+            !originalRequest.url.includes("/auth/register") &&
+            !originalRequest.url.includes("/auth/refresh-token")) {
             
             // Nếu đang refresh thì queue request lại
             if (isRefreshing) {
@@ -64,7 +68,7 @@ axiosInstance.interceptors.response.use(
 
             try {
                 const response = await axiosInstance.post(
-                    endpoints.AUTH_ENPOINTS.REFRESH_TOKEN
+                    endpoints.AUTH_ENDPOINTS.REFRESH_TOKEN
                 );
                 const newAccessToken = response.data.data;
 
@@ -84,7 +88,7 @@ axiosInstance.interceptors.response.use(
 
                 //
                 useAuthStore.getState().logout()
-                window.location.href = '/login';
+                window.location.href = '/auth/login';
 
                 return Promise.reject(refreshError);
             } finally {

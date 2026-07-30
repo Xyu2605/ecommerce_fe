@@ -1,12 +1,15 @@
 export default{
-    AUTH_ENPOINTS: {
+    AUTH_ENDPOINTS: {
         REFRESH_TOKEN: "/api/v1/auth/refresh-token",
         LOGIN: "/api/v1/auth/login",
         LOGOUT: "/api/v1/auth/logout",
+        VERIFY: "/api/v1/auth/verify-otp",
         REGISTER: "/api/v1/auth/register",
         FORGOT_PASSWORD: "/api/v1/auth/forgot-password",
         RESET_PASSWORD: "/api/v1/auth/reset-password",
-
+        ME: "/api/v1/auth/me",
+        UPDATE_ME: "/api/v1/auth/me",
+        
     },
     USER_ENDPOINTS: {
         PROFILE: "/api/v1/user/profile",

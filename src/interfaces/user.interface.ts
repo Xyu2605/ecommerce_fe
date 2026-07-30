@@ -18,7 +18,7 @@ export interface IRegisterRequest{
     confirmPassword : string;
 }
 
-export interface LoginRequest{
+export interface ILoginRequest{
     email : string;
     password : string;
 }

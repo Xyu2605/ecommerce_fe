@@ -1,5 +1,5 @@
 
-export interface IAPIResponse{
-    message : string,
-    data : object
+export interface IAPIResponse<T>{
+    message : string;
+    data : T;
 }

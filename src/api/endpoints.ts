@@ -1,4 +1,5 @@
 export default{
+    
     AUTH_ENDPOINTS: {
         REFRESH_TOKEN: "/api/v1/auth/refresh-token",
         LOGIN: "/api/v1/auth/login",
@@ -27,7 +28,7 @@ export default{
     },
     PRODUCT_ENDPOINTS: {
         GET_ALL: "/api/v1/products/all",
-        ADD_PRODUCT: "/api/v1/products/add",
+        ADD_PRODUCT: "/api/v1/products/product/add",
         GET_PRODUCT_BY_ID: (id : number) => `/api/v1/products/product/${id}/product`,
         GET_PRODUCT_BY_NAME: (name : string) => `/api/v1/products/product/by/name?name=${encodeURIComponent(name)}`,
         GET_PRODUCT_BY_BRAND: (brand : string) => `/api/v1/products/product/by/brand?brand=${encodeURIComponent(brand)}`,
@@ -39,6 +40,14 @@ export default{
     },
     IMAGE_ENDPOINTS: {
         
+    },
+    CATEGORY_ENDPOINTS: {
+        ADD_CATEGORY: "/api/v1/categories/category/add",
+        GET_ALL: "/api/v1/categories/all",
+        GET_CATEGORY_BY_ID: (id : number) => `/api/v1/categories/category/${id}/category`,
+        GET_CATEGORY_BY_NAME: (name : string) => `/api/v1/categories/category/${name}/category`,
+        UPDATE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/update`,
+        DELELE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/delete`
     }
 
 

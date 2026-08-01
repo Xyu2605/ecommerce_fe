@@ -16,7 +16,7 @@ export const useRegister = () => {
         } catch (err: any) {
             setError(
                 err.response?.data?.message ||
-                "Register failed. Please check your information."
+                "Đăng kí thất bại! Vui lòng kiểm tra lại thông tin của bạn."
             );
             throw err;
         } finally {

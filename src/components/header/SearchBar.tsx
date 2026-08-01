@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { useDebounce } from "@/hooks/useDebounce";
 import type { IProduct } from "@/interfaces/product.interface";
+import { productService } from "@/features/product/api/service";
 
 export function SearchBar() {
     const [keyword, setKeyword] = useState("")
@@ -34,7 +35,7 @@ export function SearchBar() {
         const fetchSuggestions = async () => {
             setIsSearching(true)
             try {
-                const res = await productService.getByName(debouncedKeyword);
+                const res = await productService.getProductsByName(debouncedKeyword);
                 const names = res.data
                     .map((p: IProduct) => p.name)
                     .slice(0, 5)

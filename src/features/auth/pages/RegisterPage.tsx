@@ -25,17 +25,16 @@ export default function RegisterPage() {
 
     const onSubmit = async (data: RegisterForm) => {
         try {
-            setIsLoading(true);
 
-            await registerUser(data);
+            setIsLoading(true);
+            const {confirmPassword, ...request} = data;
+            await registerUser(request);
 
             toast.success("Đăng ký thành công!");
-
             navigate("/");
 
         } catch (error: any) {
-            console.log("ERROR =", error);
-            
+
             const errorMessage = error.response?.data?.message || "Đăng ký thất bại!";
             toast.error(errorMessage);
         } finally {

@@ -1,10 +1,11 @@
 import type { IAPIResponse } from "@/interfaces/api-response.interface";
 import type { AddProductRequest, UpdateProductRequest } from "./dto/product.dto";
-import type { IProduct } from "@/interfaces/product.interface";
+import type { IProduct, IProductSection } from "@/interfaces/product.interface";
 import axiosInstance from "@/api/axios";
 import endpoints from "@/api/endpoints";
 
 export const productService = {
+
     addProduct : async(data : AddProductRequest) : Promise<IAPIResponse<IProduct>> => {
         const response = await axiosInstance.post(endpoints.PRODUCT_ENDPOINTS.ADD_PRODUCT, data);
         return response.data;
@@ -36,4 +37,8 @@ export const productService = {
     deleteProduct : async(productId : number) => {
         await axiosInstance.delete(endpoints.PRODUCT_ENDPOINTS.DELETE_PRODUCT(productId));
     },
+    getSectionProductByCategory : async() : Promise<IAPIResponse<IProductSection[]>> => {
+        const reponse = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_SECTION_PRODUCT_BY_CATEGORIES);
+        return reponse.data;
+    }
 }

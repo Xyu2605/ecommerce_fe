@@ -36,7 +36,7 @@ export default{
         GET_PRODUCT_BY_CATEGORY_AND_BRAND: (category : string, brand : string) => `/api/v1/products/product/by/category-and-brand?category=${encodeURIComponent(category)}&brand=${encodeURIComponent(brand)}`,
         UPDATE_PRODUCT: (id : number) => `/api/v1/products/product/${id}/update`,
         DELETE_PRODUCT: (id : number) => `/api/v1/products/product/${id}/delete`,
-        
+        GET_SECTION_PRODUCT_BY_CATEGORIES: "/api/v1/products/product/get-section/by/categories"
     },
     IMAGE_ENDPOINTS: {
         
@@ -44,11 +44,10 @@ export default{
     CATEGORY_ENDPOINTS: {
         ADD_CATEGORY: "/api/v1/categories/category/add",
         GET_ALL: "/api/v1/categories/all",
-        GET_CATEGORY_BY_ID: (id : number) => `/api/v1/categories/category/${id}/category`,
-        GET_CATEGORY_BY_NAME: (name : string) => `/api/v1/categories/category/${name}/category`,
+        GET_CATEGORY_BY_ID: (id : number) => `/api/v1/categories/category/by/id/${id}`,
+        GET_CATEGORY_BY_NAME: (name : string) => `/api/v1/categories/category/by/name/${name}`,
         UPDATE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/update`,
         DELELE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/delete`
     }
-
-
+    
 } as const

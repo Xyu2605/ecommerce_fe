@@ -1,5 +1,5 @@
 import type { IAPIResponse } from "@/interfaces/api-response.interface";
-import type { AddProductRequest, UpdateProductRequest } from "./dto/product.dto";
+import type { AddProductRequest, ProductFilterParams, UpdateProductRequest } from "./dto/product.dto";
 import type { IProduct, IProductSection } from "@/interfaces/product.interface";
 import axiosInstance from "@/api/axios";
 import endpoints from "@/api/endpoints";
@@ -11,7 +11,7 @@ export const productService = {
         return response.data;
     },
     getProductsByName : async(productName : string) : Promise<IAPIResponse<IProduct[]>> => {
-        const response = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_PRODUCT_BY_NAME(productName));
+        const response = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_PRODUCT_BY_NAME, {params : {productName}});
         return response.data;
     },
     getProductsByBrand : async(brand : string) : Promise<IAPIResponse<IProduct[]>> => {
@@ -40,5 +40,15 @@ export const productService = {
     getSectionProductByCategory : async() : Promise<IAPIResponse<IProductSection[]>> => {
         const reponse = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_SECTION_PRODUCT_BY_CATEGORIES);
         return reponse.data;
-    }
+    },
+    getAll: async (params?: ProductFilterParams): Promise<IAPIResponse<IProduct[]>> => {
+        const response = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_ALL,{params});
+        return response.data;
+    },
+    getProductsByCategory: async (categoryId: number, params?: ProductFilterParams): Promise<IAPIResponse<IProduct[]>> => {
+        const response = await axiosInstance.get(endpoints.PRODUCT_ENDPOINTS.GET_ALL, {
+            params: { ...params, categoryId }
+        })
+        return response.data;
+    },
 }

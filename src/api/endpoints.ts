@@ -30,13 +30,14 @@ export default{
         GET_ALL: "/api/v1/products/all",
         ADD_PRODUCT: "/api/v1/products/product/add",
         GET_PRODUCT_BY_ID: (id : number) => `/api/v1/products/product/${id}/product`,
-        GET_PRODUCT_BY_NAME: (name : string) => `/api/v1/products/product/by/name?name=${encodeURIComponent(name)}`,
+        GET_PRODUCT_BY_NAME: "/api/v1/products/product/by/name",
         GET_PRODUCT_BY_BRAND: (brand : string) => `/api/v1/products/product/by/brand?brand=${encodeURIComponent(brand)}`,
         GET_PRODUCT_BY_BRAND_AND_NAME: (brand : string, name : string) => `/api/v1/products/product/by/brand-and-name?brand=${encodeURIComponent(brand)}&name=${encodeURIComponent(name)}`,
         GET_PRODUCT_BY_CATEGORY_AND_BRAND: (category : string, brand : string) => `/api/v1/products/product/by/category-and-brand?category=${encodeURIComponent(category)}&brand=${encodeURIComponent(brand)}`,
         UPDATE_PRODUCT: (id : number) => `/api/v1/products/product/${id}/update`,
         DELETE_PRODUCT: (id : number) => `/api/v1/products/product/${id}/delete`,
-        GET_SECTION_PRODUCT_BY_CATEGORIES: "/api/v1/products/product/get-section/by/categories"
+        GET_SECTION_PRODUCT_BY_CATEGORIES: "/api/v1/products/product/get-section/by/categories",
+        GET_BY_CATEGORY_ID: "/api/v1/products/product/by/category"
     },
     IMAGE_ENDPOINTS: {
         

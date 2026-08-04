@@ -15,3 +15,13 @@ export interface UpdateProductRequest {
     price : number;
     inventory : number;
 }
+
+
+export interface ProductFilterParams {
+    categoryId? : number;
+    brand?: string;
+    name?: string;
+    page?: number;
+    size?: number;
+    sort?: string;
+}

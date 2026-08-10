@@ -1,7 +1,7 @@
 // pages/ProductPage.tsx
 import { useCategoryNav } from "@/hooks/useCategoryNav"
 import { useSearchParams, useNavigate } from "react-router-dom"
-import { ProductCard } from "./ProductCard"
+import { ProductCard } from "../components/ProductCard"
 import { useProducts } from "@/hooks/useProduct"
 
 export default function ProductPage() {

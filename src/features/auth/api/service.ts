@@ -1,4 +1,3 @@
-
 import axiosInstance from '@/api/axios'
 import endpoints from '@/api/endpoints'
 import type { IAPIResponse } from '@/interfaces/api-response.interface'
@@ -53,6 +52,7 @@ export const authService = {
         const response = await axiosInstance.put(endpoints.AUTH_ENDPOINTS.UPDATE_ME, data);
         return response.data;
     },
+    
     refreshToken: async () => {
         const reponse = await axiosInstance.post(endpoints.AUTH_ENDPOINTS.REFRESH_TOKEN);
         return reponse.data;

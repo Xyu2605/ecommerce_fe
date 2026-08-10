@@ -49,6 +49,10 @@ export default{
         GET_CATEGORY_BY_NAME: (name : string) => `/api/v1/categories/category/by/name/${name}`,
         UPDATE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/update`,
         DELELE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/delete`
+    },
+    CART_ENDPOINTS: {
+        GET_CART_BY_USER_ID : "/api/v1/carts/cart",
+        ADD_ITEM_TO_CART: "/api/v1/carts/add"
     }
     
 } as const

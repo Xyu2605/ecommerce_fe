@@ -1,6 +1,7 @@
 import { LoginPage } from "@/features/auth/pages/LoginPage"
 import RegisterPage from "@/features/auth/pages/RegisterPage"
-import ProductPage from "@/features/product/components/ProductPage"
+import ProductDetailPage from "@/features/product/pages/ProductDetailPage"
+import ProductPage from "@/features/product/pages/ProductPage"
 import { AuthLayout } from "@/layouts/AuthLayout"
 import { MainLayout } from "@/layouts/MainLayout"
 import HomePage from "@/pages/HomePage"       
@@ -18,10 +19,10 @@ const router = createBrowserRouter([
                 path: "/products",
                 element: <ProductPage /> 
             },
-            // {
-            //     path: "/products/:id",
-            //     element: <ProductDetailPage />  //chi tiết sản phẩm
-            // }
+            {
+                path: "/products/:id",
+                element: <ProductDetailPage /> 
+            }
         ]
     },
     {

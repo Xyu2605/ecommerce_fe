@@ -1,4 +1,3 @@
-
 import type { IRole } from './role.interface';
 
 export interface IUser{
@@ -10,33 +9,33 @@ export interface IUser{
     role : IRole[];
 }
 
-export interface IRegisterRequest{
-    firstName : string;
-    lastName : string;
-    email : string;
-    password : string;
-    confirmPassword : string;
-}
+// export interface IRegisterRequest{
+//     firstName : string;
+//     lastName : string;
+//     email : string;
+//     password : string;
+//     confirmPassword : string;
+// }
 
-export interface ILoginRequest{
-    email : string;
-    password : string;
-}
+// export interface ILoginRequest{
+//     email : string;
+//     password : string;
+// }
 
-export interface IChangePasswordRequest{
-    oldPassword : string;
-    newPassword : string;
-    confirmPassword : string;
-}
+// export interface IChangePasswordRequest{
+//     oldPassword : string;
+//     newPassword : string;
+//     confirmPassword : string;
+// }
 
-export interface IResetPasswordRequest{
-    email : string;
-    otp : string;
-    newPassword : string;
-    confirmPassword : string;
-}
+// export interface IResetPasswordRequest{
+//     email : string;
+//     otp : string;
+//     newPassword : string;
+//     confirmPassword : string;
+// }
 
-export interface IUpdateUserRequest{
-    firstName : string;
-    lastName : string;
-}
+// export interface IUpdateUserRequest{
+//     firstName : string;
+//     lastName : string;
+// }

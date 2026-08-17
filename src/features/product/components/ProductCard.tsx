@@ -1,5 +1,6 @@
 import type { IProduct } from "@/interfaces/product.interface";
 import { formatPrice } from "@/lib/utils";
+import { toPublicImageUrl } from "@/utils/image-url";
 import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
@@ -14,7 +15,7 @@ export function ProductCard({product} : ProductCardProps) {
             {/* Image */}
             <div className="aspect-square overflow-hidden bg-gray-100">
                 <img
-                    src={product.images?.[0]?.downloadUrl ?? "/placeholder.png"}
+                    src={toPublicImageUrl(product.images?.[0]?.downloadUrl)}
                     alt={product.name}
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                 />

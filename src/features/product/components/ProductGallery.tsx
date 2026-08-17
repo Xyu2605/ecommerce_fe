@@ -1,5 +1,6 @@
 
 import type { IImage } from "@/interfaces/image.interface"
+import { toPublicImageUrl } from "@/utils/image-url"
 import { useState } from "react"
 
 interface ProductGalleryProps {
@@ -9,7 +10,7 @@ interface ProductGalleryProps {
 export function ProductGallery({ images }: ProductGalleryProps) {
     const [selectedIndex, setSelectedIndex] = useState(0)
 
-    const mainImage = images?.[selectedIndex]?.downloadUrl ?? "/placeholder.png"
+    const mainImage = toPublicImageUrl(images?.[selectedIndex]?.downloadUrl)
 
     return (
         <div className="space-y-3">
@@ -19,7 +20,10 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                     src={mainImage}
                     alt="Product"
                     className="h-full w-full object-cover transition duration-300"
-                    onError={(e) => { e.currentTarget.src = "/placeholder.png" }}
+                    onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = "/placeholder.png";
+                    }}
                 />
             </div>
 
@@ -37,10 +41,13 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                                 }`}
                         >
                             <img
-                                src={img.downloadUrl}
+                                src={toPublicImageUrl(img.downloadUrl)}
                                 alt=""
                                 className="h-full w-full object-cover"
-                                onError={(e) => { e.currentTarget.src = "/placeholder.png" }}
+                                onError={(e) => {         
+                                    e.currentTarget.onerror = null;
+                                    e.currentTarget.src = "/placeholder.png";
+                                }}
                             />
                         </button>
                     ))}
@@ -48,4 +55,4 @@ export function ProductGallery({ images }: ProductGalleryProps) {
             )}
         </div>
     )
-}
+}

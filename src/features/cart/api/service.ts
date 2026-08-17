@@ -2,7 +2,6 @@ import axiosInstance from "@/api/axios";
 import endpoints from "@/api/endpoints";
 import type { IAPIResponse } from "@/interfaces/api-response.interface";
 import type { ICart } from "@/interfaces/cart.interface";
-import type { AddItemToCartRequest } from "./dto/cart.dto";
 
 export const cartService = {
     getCartByUserId : async (): Promise<IAPIResponse<ICart>> => {
@@ -10,9 +9,10 @@ export const cartService = {
         return response.data;
     },
     
-    addItemToCart : async (data : AddItemToCartRequest) : Promise<IAPIResponse<ICart>> => {
-        const response = await axiosInstance.post(endpoints.CART_ENDPOINTS.ADD_ITEM_TO_CART, null,
-                        {params : { productId : data.productId, quantity : data.quantity}});
+    addItem: async (productId: number, quantity: number) => {
+        const response = await axiosInstance.post(endpoints.CART_ENDPOINTS.ADD_ITEM_TO_CART, null, {
+            params: { productId, quantity }
+        });
         return response.data;
     }
 }

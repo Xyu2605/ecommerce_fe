@@ -38,7 +38,7 @@ axiosInstance.interceptors.request.use(
         }
         return config
     },
-    (error) => Promise.reject(error)  // thêm error handler
+    (error) => Promise.reject(error) 
 );
 
 // Response interceptor
@@ -47,7 +47,7 @@ axiosInstance.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        if (   error.response?.status === 401 &&
+        if ( error.response?.status === 401 &&
             !originalRequest._retry &&
             !originalRequest.url.includes("/auth/login") &&
             !originalRequest.url.includes("/auth/register") &&
@@ -87,8 +87,7 @@ axiosInstance.interceptors.response.use(
                 processQueue(refreshError, null)
 
                 //
-                useAuthStore.getState().logout()
-                window.location.href = '/auth/login';
+                useAuthStore.getState().logout();
 
                 return Promise.reject(refreshError);
             } finally {

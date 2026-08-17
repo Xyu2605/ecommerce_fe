@@ -39,9 +39,6 @@ export default{
         GET_SECTION_PRODUCT_BY_CATEGORIES: "/api/v1/products/product/get-section/by/categories",
         GET_BY_CATEGORY_ID: "/api/v1/products/product/by/category"
     },
-    IMAGE_ENDPOINTS: {
-        
-    },
     CATEGORY_ENDPOINTS: {
         ADD_CATEGORY: "/api/v1/categories/category/add",
         GET_ALL: "/api/v1/categories/all",
@@ -51,8 +48,10 @@ export default{
         DELELE_CATEGORY: (id : number) => `/api/v1/categories/category/${id}/delete`
     },
     CART_ENDPOINTS: {
-        GET_CART_BY_USER_ID : "/api/v1/carts/cart",
-        ADD_ITEM_TO_CART: "/api/v1/carts/add"
-    }
-    
+        GET_CART_BY_USER_ID : "/api/v1/cart",
+        ADD_ITEM_TO_CART: "/api/v1/cart/add"
+    },
+    IMAGE_ENDPOINTS: {
+        GET_IMAGE_BY_ID: (id : number) => `/api/v1/images/image/download/${id}`,
+    },
 } as const

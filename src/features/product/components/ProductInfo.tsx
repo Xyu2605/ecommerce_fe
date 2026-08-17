@@ -1,4 +1,3 @@
-// features/product/components/ProductInfo.tsx
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ShoppingCart, Zap, Minus, Plus } from "lucide-react"
@@ -18,8 +17,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
     const { isAuthenticated } = useAuthStore()
     const navigate = useNavigate()
 
-    const isOutOfStock = product.inventory === 0
-    const maxQuantity = product.inventory
+    const isOutOfStock = product.inventory === 0;
+    const maxQuantity = product.inventory;
 
     const handleQuantityChange = (delta: number) => {
         setQuantity(prev => Math.min(Math.max(1, prev + delta), maxQuantity))
@@ -34,7 +33,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
         try {
             setIsAddingToCart(true)
-            await cartService.addItemToCart(product.id, quantity)
+            await cartService.addItem(product.id, quantity)
             toast.success(`Đã thêm ${quantity} sản phẩm vào giỏ!`)
         } catch {
             toast.error("Thêm vào giỏ thất bại!")
